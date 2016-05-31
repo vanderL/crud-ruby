@@ -1,0 +1,72 @@
+<style>
+
+.sub-menu1{
+	display:block;
+}
+.sub-menu2{
+	display:block;
+}
+
+</style>
+
+<ul class="menu">
+	<li>li 1</li>
+	<li>li 2</li>
+	<li>li 3
+		<ul class="sub-menu1">
+			<li>li 1</li>
+			<li>li 2</li>
+		</ul>
+	</li>
+	<li>li 4
+		<ul class="sub-menu2">
+			<li>li 1</li>
+			<li>li 2</li>
+		</ul>
+	</li>
+</ul>
+
+<script>
+
+	var x = document.getElementsByTagName("ul");
+	var y = document.getElementsByTagName("li");
+	var i;
+	var onclick = false;
+
+	for(i=0;i<x.length;i++){
+		if(x[i].className == "sub-menu1"){
+			x[i].style.display="none";
+		}
+		if(x[i].className == "sub-menu2"){
+			x[i].style.display="none";
+		}
+	}
+
+	for(i=0;i<y.length;i++){
+		y[i].onclick = function(){
+			if(!onclick)
+				for(i=0;i<x.length;i++){
+					console.log(i);
+					if(x[i].className == "sub-menu1"){
+						x[i].style.display="block";
+						onclick = true;
+						break;
+					}	 
+				} 
+			}else 
+			for(i=0;i<x.length;i++){
+					console.log(i);
+					if(x[i].className == "sub-menu1"){
+						x[i].style.display="none";
+						onclick = false;
+					}	 
+				} 
+	}
+
+
+
+
+
+	
+
+</script>
